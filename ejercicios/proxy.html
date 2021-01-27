@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>Abre la consola.</h3>
+
+
+  <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+  <script>
+
+//Generadorews
+
+function* firstGenerator(){
+  console.log('GENERATOR START');
+  yield 1; //La funcion se detendra y comenzara a partir del ultimo yield recibido, este yield sera lo que se retorna llamando 
+    //el metodo .next()
+  yield 2;
+  yield 3;
+  console.log('GENERATOR END');
+}
+// Se puede realizar generadores infinitos.
+
+function* infiniteGenerator(){
+  let id = 1
+  while(true){
+    yield id
+    id++;
+  }
+}
+
+//Se pueden recibir parametros para agregar comportamientos mas complejos.
+function* infiniteGeneratorWithReset(){
+  let id = 1
+  let reset;
+  while(true){
+    reset = yield id
+    if(reset){
+      id = 1
+    }else{
+      id++;
+    }
+  }
+}
+  </script>  
+</body>
+</html>
